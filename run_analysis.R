@@ -44,13 +44,20 @@ activity_list<-read.table("./UCI HAR Dataset/activity_labels.txt")
 
 
 ## Create a column listing the activity rather than the numerical value (this relates to #3 in the Assignment description)
-activity_test<-merge(y_test,activity_list,by="V1",all=TRUE)
-activity_train<-merge(y_train,activity_list,by="V1",all=TRUE)
+# Because the merge function reorders the data set automatically-- and doing this will screw up my dataset (because it needs to stay in the original order, I create an ID column to order by after the merge)
+y_test$id  <- 1:nrow(y_test)
+activity_test <- merge(y_test,activity_list, by = "V1")
+activity_test<-activity_test[order(activity_test$id), ]
+
+y_train$id  <- 1:nrow(y_train)
+activity_train <- merge(y_train,activity_list, by = "V1")
+activity_train<-activity_train[order(activity_train$id), ]
+
 
 # Remove the numerical value column since we don't need it anymore
 # use drop=FALSE so the object stays a data frame so we can label the column in the nest step
-activity_train<-activity_train[,2, drop=FALSE]
-activity_test<-activity_test[,2, drop=FALSE]
+activity_train<-activity_train[,3, drop=FALSE]
+activity_test<-activity_test[,3, drop=FALSE]
 
 #Assign "activity"name to columns
 
@@ -61,7 +68,6 @@ colnames(activity_train) <- "activity"
 ## THESE ARE THE INDIVIDUAL MEASUREMENTS OF THE ACCELOROMETER AND GRYOSCOPE FEATURES PERFORMED IN THE ANALYSIS ##
 x_test<-read.table("./UCI HAR Dataset/test/X_test.txt")
 x_train<-read.table("./UCI HAR Dataset/train/X_train.txt")
-
 
 #> dim(x_test)
 #[1] 2947  561
