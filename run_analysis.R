@@ -134,8 +134,8 @@ table(subjxactivityxfeature_COMBINED_MELT$subject,subjxactivityxfeature_COMBINED
 ##.... they both indicate that only the "WALKING" activity was observed for this subject, to the results appear to make sense, after all 
 
 
-## Create Final Data set (i.e. the data set containing the final combined training and testing sets PRIOR to the melting and the dcast steps above) in the form of a txt file as per the "Submission" instructions
-write.table(subjxactivityxfeature_COMBINED,"./FinalDataSet_CourseraClass_GettingData.txt",row.names = FALSE)
+## Create Final Data set in the form of a txt file as per the "Submission" instructions
+write.table(subjxactivityxfeature_COMBINED_MELT_AVERAGES,"./FinalDataSet_CourseraClass_GettingData.txt",row.names = FALSE)
 
 ## Have the output of running this code be the final "tidy" melted and combined data set 
 print(subjxactivityxfeature_COMBINED_MELT_AVERAGES)
