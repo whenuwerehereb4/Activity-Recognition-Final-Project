@@ -5,26 +5,144 @@ date: "3/7/2017"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+CODE BOOK : ACTIVITY RECOGNITION USING SMARTPHONES
 
-## R Markdown
+IMPORTANT NOTES TO KEEP IN MIND WHEN REVIEWING THE CODE BOOK: *Note 1:
+The values listed in the code book come from 2 separate data frame
+objects that are constructed in the attached R script and are the basis
+for the analysis (details for how these objects are created are included
+in the R script and README file): **Note 2:  The variable names are
+identical in both objects.  In one case they refer to the original
+observations and in the second case they represents a summation of those
+observations.   For further clarification, here is an explanation of the
+2 objects:
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+1) subjxactivityxfeature_COMBINED; - this object includes ALL original
+observations from the study ; - the individual observations are labeled
+(and identifiable) by the subject and the activity (described in more
+detail below) - this is the source of the data included in the text file
+“FinalDataSet_CourseraClass_GettingData.txt”
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+2) subjxactivityxfeature_COMBINED_MELT_AVERAGES - this object takes the
+average for each feature (feature= all columns aside from the ID
+columns, subject and activity) in the
+        subjxactivityxfeature_COMBINED (described above) data frame
+across all observations associated with the the same subject AND
+activity in the data - this is the source of the data output when the
+attached R script is run
 
-```{r cars}
-summary(cars)
-```
 
-## Including Plots
+IDENTIFIER INFORMATION — refers to the grouping variables described
+above 
+——————————————————————————————————————————————————————— 
 
-You can also embed plots, for example:
+subject -
+Unique identifier for the subject - the variable range is 1 to 30 (the
+study includes 30 subjects)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+——————————————————————————————————————————————————————— 
+activity -
+Qualitative identifier for the activity that was labeled by human
+observers based on video reviews - The study involves measurements of 6
+different activities. The activities that were recorded (and the
+corresponding labels in the data) are as follows: 1)  WALKING 2) 
+WALKING_UPSTAIRS 3)  WALKING_DOWNSTAIRS 4)   STANDING 5)  SITTING 6) 
+LAYING 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+———————————————————————————————————————————————————————
+
+Overview of the Quantiative Data All data and details about the
+measurements was gathered from here: 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+
+Smartphones
+
+Data and other info were taken from here:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR
+%20Dataset.zip
+
+
+The quantitative variables are based on measurements taken with the
+following methodology: “… the accelerometer and gyroscope 3-axial raw
+signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to
+denote time) were captured at a constant rate of 50 Hz. Then they were
+filtered using a median filter and a 3rd order low pass Butterworth
+filter with a corner frequency of 20 Hz to remove noise.  Similarly, the
+acceleration signal was then separated into body and gravity
+acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another
+low pass Butterworth filter with a corner frequency of 0.3 Hz.” (taken
+from the “features_info.txt” file within the ZIP file)
+
+These variables have been grouped below according to the movement and
+statistic type.
+
+In addition: - The X,Y and Z associated with each of the groups refer to
+whether the movement was made along the X,Y or Z axis. This is the same
+for all movement types and is therefore not repeated below. - there are
+2 statistic types associated with these groups: 1) mean ; and 2)
+standard deviations - these statistics were calculated based on repeated
+measures (128) taken with a very short time frame (2.56. seconds), so it
+is reasonable to treat them as single observations in our data set.
+
+———————————————————————————————————————————————————————
+
+tbodyAcc-mean()-X tbodyAcc-mean()-Y tBodyAcc-mean()-Z - the body
+component of the  acceleration signal, which has gravitational and body
+motion components, was separated using a Butterworth low-pass filter
+into body acceleration and gravity.
+
+tBodyAcc-std()-X tBodyAcc-std()-Y tBodyAcc-std()-Z — corresponding
+standard deviations
+———————————————————————————————————————————————————————
+tGravityAcc-mean()-X tGravityAcc-mean()-Y tGravityAcc-mean()-Z - the
+gravity component of the sensor acceleration signal (which has
+gravitational and body motion components) was separated using a
+Butterworth low-pass filter into body acceleration and gravity. - the
+gravitational force is assumed to have only low frequency components,
+therefore a filter with 0.3 Hz cutoff frequency was used
+
+tGravityAcc-std()-X tGravityAcc-std()-Y tGravityAcc-std()-Z —
+corresponding standard deviations
+———————————————————————————————————————————————————————
+
+The following variables were determined by the following methodology:
+“The body linear acceleration and angular velocity were derived in time
+to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also
+the magnitude of these three-dimensional signals were calculated using
+the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag,
+tBodyGyroMag, tBodyGyroJerkMag).”
+
+*NOTE: the [ ] and “ “ are not par of the variable name
+———————————————————————————————————————————————————————
+
+[15] “tBodyAccJerk-mean()-X" [16] "tBodyAccJerk-mean()-Y" [17]
+"tBodyAccJerk-mean()-Z" [18] "tBodyAccJerk-std()-X" [19]
+"tBodyAccJerk-std()-Y" [20] "tBodyAccJerk-std()-Z" [21]
+"tBodyGyro-mean()-X" [22] "tBodyGyro-mean()-Y" [23] "tBodyGyro-mean()-Z"
+[24] "tBodyGyro-std()-X" [25] "tBodyGyro-std()-Y" [26]
+"tBodyGyro-std()-Z" [27] "tBodyGyroJerk-mean()-X" [28]
+"tBodyGyroJerk-mean()-Y" [29] "tBodyGyroJerk-mean()-Z" [30]
+"tBodyGyroJerk-std()-X" [31] "tBodyGyroJerk-std()-Y" [32]
+"tBodyGyroJerk-std()-Z" [33] "tBodyAccMag-mean()" [34]
+"tBodyAccMag-std()" [35] "tGravityAccMag-mean()" [36]
+"tGravityAccMag-std()" [37] "tBodyAccJerkMag-mean()" [38]
+"tBodyAccJerkMag-std()" [39] "tBodyGyroMag-mean()" [40]
+"tBodyGyroMag-std()" [41] "tBodyGyroJerkMag-mean()" [42]
+"tBodyGyroJerkMag-std()" [43] "fBodyAcc-mean()-X" [44]
+"fBodyAcc-mean()-Y" [45] "fBodyAcc-mean()-Z" [46] "fBodyAcc-std()-X"
+[47] "fBodyAcc-std()-Y" [48] "fBodyAcc-std()-Z" [49]
+"fBodyAcc-meanFreq()-X" [50] "fBodyAcc-meanFreq()-Y" [51]
+"fBodyAcc-meanFreq()-Z" [52] "fBodyAccJerk-mean()-X" [53]
+"fBodyAccJerk-mean()-Y" [54] "fBodyAccJerk-mean()-Z" [55]
+"fBodyAccJerk-std()-X" [56] "fBodyAccJerk-std()-Y" [57]
+"fBodyAccJerk-std()-Z" [58] "fBodyAccJerk-meanFreq()-X" [59]
+"fBodyAccJerk-meanFreq()-Y" [60] "fBodyAccJerk-meanFreq()-Z" [61]
+"fBodyGyro-mean()-X" [62] "fBodyGyro-mean()-Y" [63] "fBodyGyro-mean()-Z"
+[64] "fBodyGyro-std()-X" [65] "fBodyGyro-std()-Y" [66]
+"fBodyGyro-std()-Z" [67] "fBodyGyro-meanFreq()-X" [68]
+"fBodyGyro-meanFreq()-Y" [69] "fBodyGyro-meanFreq()-Z" [70]
+"fBodyAccMag-mean()" [71] "fBodyAccMag-std()" [72]
+"fBodyAccMag-meanFreq()" [73] "fBodyBodyAccJerkMag-mean()" [74]
+"fBodyBodyAccJerkMag-std()" [75] "fBodyBodyAccJerkMag-meanFreq()" [76]
+"fBodyBodyGyroMag-mean()" [77] "fBodyBodyGyroMag-std()" [78]
+"fBodyBodyGyroMag-meanFreq()" [79] "fBodyBodyGyroJerkMag-mean()" [80]
+"fBodyBodyGyroJerkMag-std()" [81] "fBodyBodyGyroJerkMag-meanFreq()"
