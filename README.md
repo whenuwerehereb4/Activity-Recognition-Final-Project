@@ -78,10 +78,11 @@ rows of this significantl shrunken data set (shrunken from 563 features down to
 ##Important notes regarding the R script:  
 * The "run_analysis.R" script is entirely self-sufficient, including downloading
 the zip file and unzipping it if you have not already done so (if the file
-already exists in your working directory it will skip this step). * You will
-only need to decide which working directory you wish to store this information,
-as that step is not included in the script (it assumes you have already selected
-your preferred working directory)
+already exists in your working directory it will skip this step).
+
+* You will only need to decide which working directory you wish to store this
+information, as that step is not included in the script (it assumes you have
+already selected your preferred working directory)
 
 ##Comments regarding my interpretation of the term "tidy data sets" as it
 ##relates to this assignment:
