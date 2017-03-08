@@ -33,15 +33,15 @@ attached R script is run
 above 
 
 ---  
-##subject -
-Unique identifier for the subject - the variable range is 1 to 30 (the
-study includes 30 subjects)
+##subject  
+* Unique identifier for the subject  
+* the variable range is 1 to 30 (the study includes 30 subjects)
+
 ---  
-##activity -
-Qualitative identifier for the activity that was labeled by human
-observers based on video reviews - The study involves measurements of 6
-different activities. The activities that were recorded (and the
-corresponding labels in the data) are as follows:  
+##activity 
+* Qualitative identifier for the activity that was labeled by human
+observers based on video reviews  
+* The study involves measurements of 6 different activities. The activities that were recorded (and the corresponding labels in the data) are as follows:  
 * 1) WALKING   
 * 2) WALKING_UPSTAIRS  
 * 3) WALKING_DOWNSTAIRS  
@@ -51,17 +51,16 @@ corresponding labels in the data) are as follows:
 
 ---  
 
-#Qunatitative Features
+#Quantitative Features
 
-##Overview of the Quantiative Data 
+##Overview of the Quantitative Data 
 
 *All data and details about the measurements was gathered from here:*
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+
 Smartphones
 
 *Data and other info were taken from here:*
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR
-%20Dataset.zip
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 
 The quantitative variables are based on measurements taken with the
@@ -76,9 +75,6 @@ acceleration signal was then separated into body and gravity
 acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another
 low pass Butterworth filter with a corner frequency of 0.3 Hz.” 
 
-These variables have been grouped below according to the movement and
-statistic type.
-
 In addition:  
 *  The X,Y and Z associated with each of the groups refer to
 whether the movement was made along the X,Y or Z axis. This is the same
@@ -90,11 +86,15 @@ for all movement types and is therefore not repeated below.
 measures (128) taken with a very short time frame (2.56. seconds), so it
 is reasonable to treat them as single observations in our data set.
 
-—————————————————————————————————————————————————————  
+These variables have been grouped below according to the movement and
+statistic type.
+
+--- 
 
 ##tbodyAcc-mean()-X  
 ##tbodyAcc-mean()-Y  
 ##tBodyAcc-mean()-Z  
+
 * the body component of the  acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter
 into body acceleration and gravity.
 
@@ -102,7 +102,8 @@ into body acceleration and gravity.
 ##tBodyAcc-std()-Y  
 ##tBodyAcc-std()-Z   
 * corresponding standard deviations
-———————————————————————————————————————————————————————  
+
+---
 
 ##tGravityAcc-mean()-X 
 ##tGravityAcc-mean()-Y  
@@ -120,14 +121,14 @@ therefore a filter with 0.3 Hz cutoff frequency was used
 
 ---
 
-The remaining variables were determined by the following methodology:
+The remaining variables were determined by the following methodology:  
 “The body linear acceleration and angular velocity were derived in time
 to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also
 the magnitude of these three-dimensional signals were calculated using
 the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag,
 tBodyGyroMag, tBodyGyroJerkMag).”
 
-*NOTE*: the [ ] and “ “ are not par of the variable name
+*NOTE*: the brackets ([ ]) and the quotes (" ") surrounding the names in this list are not part of the variable names and can be ignored
 
 --- 
 
