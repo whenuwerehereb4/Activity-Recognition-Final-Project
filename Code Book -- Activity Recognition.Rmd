@@ -5,7 +5,7 @@ date: "3/7/2017"
 output: html_document
 ---
 
-CODE BOOK : ACTIVITY RECOGNITION USING SMARTPHONES
+#CODE BOOK : ACTIVITY RECOGNITION USING SMARTPHONES
 
 IMPORTANT NOTES TO KEEP IN MIND WHEN REVIEWING THE CODE BOOK: *Note 1:
 The values listed in the code book come from 2 separate data frame
@@ -17,7 +17,7 @@ observations and in the second case they represents a summation of those
 observations.   For further clarification, here is an explanation of the
 2 objects:
 
-1) subjxactivityxfeature_COMBINED; - this object includes ALL original
+1) subjxactivityxfeature_COMBINED - this object includes ALL original
 observations from the study ; - the individual observations are labeled
 (and identifiable) by the subject and the activity (described in more
 detail below) - this is the source of the data included in the text file
@@ -32,27 +32,29 @@ activity in the data - this is the source of the data output when the
 attached R script is run
 
 
-IDENTIFIER INFORMATION — refers to the grouping variables described
+#IDENTIFIER INFORMATION 
+— refers to the grouping variables described
 above 
 ——————————————————————————————————————————————————————— 
 
-subject -
+##subject -
 Unique identifier for the subject - the variable range is 1 to 30 (the
 study includes 30 subjects)
 
 ——————————————————————————————————————————————————————— 
-activity -
+##activity -
 Qualitative identifier for the activity that was labeled by human
 observers based on video reviews - The study involves measurements of 6
 different activities. The activities that were recorded (and the
 corresponding labels in the data) are as follows: 1)  WALKING 2) 
 WALKING_UPSTAIRS 3)  WALKING_DOWNSTAIRS 4)   STANDING 5)  SITTING 6) 
-LAYING 
+LAYING  
+
 
 ———————————————————————————————————————————————————————
 
-Overview of the Quantiative Data All data and details about the
-measurements was gathered from here: 
+#Overview of the Quantiative Data All data and details about the measurements was gathered from here:  
+
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+
 Smartphones
 
@@ -85,23 +87,30 @@ is reasonable to treat them as single observations in our data set.
 
 ———————————————————————————————————————————————————————
 
-tbodyAcc-mean()-X tbodyAcc-mean()-Y tBodyAcc-mean()-Z - the body
-component of the  acceleration signal, which has gravitational and body
-motion components, was separated using a Butterworth low-pass filter
+tbodyAcc-mean()-X  
+tbodyAcc-mean()-Y  
+tBodyAcc-mean()-Z  
+- the body component of the  acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter
 into body acceleration and gravity.
 
-tBodyAcc-std()-X tBodyAcc-std()-Y tBodyAcc-std()-Z — corresponding
-standard deviations
+tBodyAcc-std()-X  
+tBodyAcc-std()-Y 
+tBodyAcc-std()-Z   
+— corresponding standard deviations
 ———————————————————————————————————————————————————————
-tGravityAcc-mean()-X tGravityAcc-mean()-Y tGravityAcc-mean()-Z - the
-gravity component of the sensor acceleration signal (which has
+tGravityAcc-mean()-X 
+tGravityAcc-mean()-Y  
+tGravityAcc-mean()-Z  
+- the gravity component of the sensor acceleration signal (which has
 gravitational and body motion components) was separated using a
 Butterworth low-pass filter into body acceleration and gravity. - the
 gravitational force is assumed to have only low frequency components,
 therefore a filter with 0.3 Hz cutoff frequency was used
 
-tGravityAcc-std()-X tGravityAcc-std()-Y tGravityAcc-std()-Z —
-corresponding standard deviations
+tGravityAcc-std()-X  
+tGravityAcc-std()-Y  
+tGravityAcc-std()-Z  
+— corresponding standard deviations
 ———————————————————————————————————————————————————————
 
 The following variables were determined by the following methodology:
