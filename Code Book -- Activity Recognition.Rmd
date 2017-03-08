@@ -85,31 +85,32 @@ standard deviations - these statistics were calculated based on repeated
 measures (128) taken with a very short time frame (2.56. seconds), so it
 is reasonable to treat them as single observations in our data set.
 
-———————————————————————————————————————————————————————
+—————————————————————————————————————————————————————  
 
-tbodyAcc-mean()-X  
-tbodyAcc-mean()-Y  
-tBodyAcc-mean()-Z  
+##tbodyAcc-mean()-X  
+##tbodyAcc-mean()-Y  
+##tBodyAcc-mean()-Z  
 - the body component of the  acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter
 into body acceleration and gravity.
 
-tBodyAcc-std()-X  
-tBodyAcc-std()-Y 
-tBodyAcc-std()-Z   
+##tBodyAcc-std()-X   
+##tBodyAcc-std()-Y  
+##tBodyAcc-std()-Z   
 — corresponding standard deviations
-———————————————————————————————————————————————————————
-tGravityAcc-mean()-X 
-tGravityAcc-mean()-Y  
-tGravityAcc-mean()-Z  
+———————————————————————————————————————————————————————  
+
+##tGravityAcc-mean()-X 
+##tGravityAcc-mean()-Y  
+##tGravityAcc-mean()-Z  
 - the gravity component of the sensor acceleration signal (which has
 gravitational and body motion components) was separated using a
 Butterworth low-pass filter into body acceleration and gravity. - the
 gravitational force is assumed to have only low frequency components,
 therefore a filter with 0.3 Hz cutoff frequency was used
 
-tGravityAcc-std()-X  
-tGravityAcc-std()-Y  
-tGravityAcc-std()-Z  
+##tGravityAcc-std()-X  
+##tGravityAcc-std()-Y  
+##tGravityAcc-std()-Z  
 — corresponding standard deviations
 ———————————————————————————————————————————————————————
 
