@@ -1,12 +1,24 @@
+######## THE FOLLOWING CODE IS USED TO GATHER, CLEAN AND SYNTHESIZE THE DATA RELATED TO "ACTIVITY RECOGNITION IN SMARTPHONES" AS PART OF THE "Getting and Cleaning Data" COURSERA COURSE FINAL ASSIGNMENT ##### 
+
+###### THIS CODE WILL DO ALL OF THE FOLLOWING (THOUGH NOT IN THIS ORDER) IN KEEPING WITH THE ASSIGNMENT INSTRUCTION 
+# 1. Merges the training and the test sets to create one data set.
+# 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+# 3. Uses descriptive activity names to name the activities in the data set
+# 4. Appropriately labels the data set with descriptive variable names.
+# 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+######################################################################
+
+#Identify data source and destination
 dataset_url<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 dataset_dest<-"./SamsungAccelerometers.zip"
 
+#This code downloads and unzips file if file does not already exist in the current working directory (set by user)
 if (!file.exists(dataset_dest)) {
         download.file(dataset_url,destfile = dataset_dest)
         unzip("SamsungAccelerometers.zip")
 }
 
-## SUBJECT LISTS ## 
+## CREATE SUBJECT LISTS ## 
 subject_test<-read.table("./UCI HAR Dataset/test/subject_test.txt")
 subject_train<-read.table("./UCI HAR Dataset/train/subject_train.txt")
 
@@ -18,7 +30,7 @@ colnames(subject_train) <- "subject"
 y_test<-read.table("./UCI HAR Dataset/test/y_test.txt")
 y_train<-read.table("./UCI HAR Dataset/train/y_train.txt")
 
-## 3. Uses descriptive activity names to name the activities in the data set
+## Uses descriptive activity names to name the activities in the data set (relates to #3 in Assignment description)
 
 ## THERE WERE 6 POSSIBLE ACTIVITY LABELS: 
 
@@ -31,7 +43,7 @@ activity_list<-read.table("./UCI HAR Dataset/activity_labels.txt")
 #6 LAYING
 
 
-## Create a column listing the activity rather than the numerical value
+## Create a column listing the activity rather than the numerical value (this relates to #3 in the Assignment description)
 activity_test<-merge(y_test,activity_list,by="V1",all=TRUE)
 activity_train<-merge(y_train,activity_list,by="V1",all=TRUE)
 
@@ -54,7 +66,7 @@ x_train<-read.table("./UCI HAR Dataset/train/X_train.txt")
 #> dim(x_test)
 #[1] 2947  561
 
-## 4. Uses descriptive activity names to name the activities in the data set
+##  Uses descriptive activity names to name the activities in the data set (relates to #4 in Assignment description)
 
 ## FEATURE LIST ##
 feature_list<-read.table("./UCI HAR Dataset/features.txt")
@@ -66,7 +78,7 @@ colnames(x_test) <- as.character(feature_list[,2]);
 colnames(x_train) <- as.character(feature_list[,2]);
 
 
-## 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+## Extracts only the measurements on the mean and standard deviation for each measurement (relates to #2 in Assignment description).
 
 ##Subset the data frame to extracts only the measurements on the mean and standard deviation for each measurement.
 
@@ -79,8 +91,6 @@ feature_train<-subset(x_train[grepl("mean|std",colnames(x_train))])
 # [1] 7352  563
 
 feature_test<-subset(x_test[grepl("mean|std",colnames(x_test))])
-
-
 
 ##COMBINE ALL THE DATA ASSOCIATED WITH THE OBSERVATIONS INTO A SINGLE DATA FRAME -- ONE EACH FOR THE "train" and "test" data sets.  
 ## THESE DATA FRAMES COMBINE THE 1) SUBJECT, 2) ACTIVITY AND 3) MEASUREMENTS/FEATURES DATA FRAMES (in that order) INTO A SINGLE DATA FRAME:
@@ -116,6 +126,7 @@ subjxactivityxfeature_COMBINED_MELT_AVERAGES<-dcast(subjxactivityxfeature_COMBIN
 ### THIS SEEMS LIKE A VERY LOW # OF OBSERVATIONS AT THIS LAST STEP.  NEED TO CONFIRM THAT THIS IS CONSISTENT WITH THE DATA FROM EARLIER STEPS ### 
 
 # if we just review subject 1 in the MELT and the COMBINED_MELT tables, for instance 
+
 subset(subjxactivityxfeature_COMBINED_MELT_AVERAGES[1,1:10],subject==1)
 #subject activity tBodyAcc-mean()-X tBodyAcc-mean()-Y
 #1       1  WALKING         0.2656969       -0.01829817
@@ -134,8 +145,8 @@ table(subjxactivityxfeature_COMBINED_MELT$subject,subjxactivityxfeature_COMBINED
 ##.... they both indicate that only the "WALKING" activity was observed for this subject, to the results appear to make sense, after all 
 
 
-## Create Final Data set in the form of a txt file as per the "Submission" instructions
+## Create Final Data set in the form of a txt file as per the "Submission" instructions (this is done to meet the text file submission requirement described on the "Submission" page)
 write.table(subjxactivityxfeature_COMBINED_MELT_AVERAGES,"./FinalDataSet_CourseraClass_GettingData.txt",row.names = FALSE)
 
-## Have the output of running this code be the final "tidy" melted and combined data set 
-print(subjxactivityxfeature_COMBINED_MELT_AVERAGES)
+## Have the first 2 rows from the output of running this code be the final "tidy" melted and combined data set (not required by assignment but I find it satisfying to see something in my console after I run a script)
+print(head(subjxactivityxfeature_COMBINED_MELT_AVERAGES,2))

@@ -1,5 +1,5 @@
 ---
-title: "Code Book — Activity Recognition Variables"
+title: "Code Book — Activity Recognition Variables (Coursera Getting and Cleaning Data Final Assignment)"
 author: "Andrew Nix"
 date: "3/7/2017"
 output: html_document
@@ -11,9 +11,11 @@ IMPORTANT NOTES TO KEEP IN MIND WHEN REVIEWING THE CODE BOOK:
 *Note 1:
 The variables listed in the code book come from 2 separate data frame
 objects that are constructed in the attached R script and are the basis
-for the analysis (details for how these objects are created are included
-in the R script and README file):  
-*Note 3:  The variable names are identical in both objects.  In one case they refer to the original observations and in the second case they represents a summation of those observations.   For further clarification, here is an explanation of the 2 objects:
+for the analysis .
+*Note 2:  
+These variables represent a subset of the original data set of "features" that were in the imported dataset.  They were selected because they represented the 2 statistics of interest per the assignment instructions
+*Note 3:  
+The variable names are identical in both objects.  In one case they refer to the original observations and in the second case they represents a summation of those observations.   For further clarification, here is an explanation of the 2 objects:
 * 1) *subjxactivityxfeature_COMBINED* - this object includes ALL original
 observations from the study ; - the individual observations are labeled
 (and identifiable) by the subject and the activity (described in more
@@ -22,10 +24,10 @@ detail below) - this is the source of the data included in the text file
 
 * 2) *subjxactivityxfeature_COMBINED_MELT_AVERAGES* - this object takes the
 average for each feature (feature= all columns aside from the ID
-columns, subject and activity) in the *subjxactivityxfeature_COMBINED* (described above) data frame across all observations associated with the the same subject AND
-activity in the data - this is the source of the data output when the
-attached R script is run
-
+columns, subject and activity) in the *subjxactivityxfeature_COMBINED* (described above) data frame across all observations associated with the the same subject AND activity in the data - this is the source of the data output when the attached R script is run
+*Note 4: 
+Additional details for how these objects were created are included
+in the R script (see comments) and README files.  This info may be helpful  toward reaching a complete understanding of these variables.
 
 
 #IDENTIFIER INFORMATION 
